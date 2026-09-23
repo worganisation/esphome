@@ -1,0 +1,25 @@
+---
+name: Propose Home Assistant submodule update
+
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: esphome-submodule-release
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: "!github.event.release.prerelease"
+    uses: worganisation/github-config-files/.github/workflows/__deploy.yml@0.8.7
+    with:
+      deploy-to: submodule:worganisation/home-assistant/esphome
+      environment: production
+      release-tag: ${{ github.event.release.tag_name }}
+    secrets: inherit
