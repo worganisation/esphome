@@ -2,5 +2,20 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>worganisation/github-config-files:renovate-default"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^esp32-bluetooth-proxy\\.yaml$/"
+      ],
+      "matchStrings": [
+        "github://(?<depName>esphome/bluetooth-proxies)/[^@\\s]+@(?<currentDigest>[a-f0-9]{40})"
+      ],
+      "datasourceTemplate": "git-refs",
+      "packageNameTemplate": "https://github.com/{{{depName}}}",
+      "versioningTemplate": "git",
+      "currentValueTemplate": "main"
+    }
   ]
 }
