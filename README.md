@@ -77,3 +77,24 @@ the LXC does not need the USB device. Later installations can use OTA.
 ## Device notes
 
 - [JOROTO X2/X2PRO Bluetooth investigation](docs/joroto-x2-bluetooth.md)
+
+## CI and releases
+
+Pull requests run the shared GCF metadata checks and Prek hooks, including the
+existing ESPHome configuration validation hook. All shared workflows are pinned
+to an immutable GCF commit; Renovate maintains their versions. Organisation PRs
+require a deliberate merge.
+
+To publish a version, run **Semantic Release** from **Actions** on `main`.
+Choose `auto` to derive the version from semantic commits, or select a version
+component explicitly. Release creation is only available through manual dispatch;
+merging or pushing a commit does not publish a release.
+
+A published stable release starts **Propose Home Assistant submodule update**.
+It opens a PR updating `worganisation/home-assistant` to the released ESPHome
+revision. That PR requires a deliberate merge. This workflow does not flash
+firmware or update the Device Builder LXC.
+
+After this CI change is merged, re-enable **Prek Auto-Update**, which was paused
+while its previous shared implementation could automatically merge updates.
+Keep the retired `ci_deployment.yml` and `set-pr-auto-merge.yml` workflows disabled.

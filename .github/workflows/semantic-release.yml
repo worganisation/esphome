@@ -29,7 +29,7 @@ jobs:
       github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     name: Release
     # yamllint disable-line rule:line-length
-    uses: worganisation/github-config-files/.github/workflows/__semantic-release.yml@a3499886b00fc9840ca69480d9c1f799fbb78c83 # manual-release policy
+    uses: worganisation/github-config-files/.github/workflows/__semantic-release.yml@539b889c12470285760b747e8bb4a4c221213b59 # shared CI
     with:
       python-version: '3.12'
       force-deployment: >-

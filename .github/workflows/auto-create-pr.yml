@@ -13,7 +13,7 @@ jobs:
   create-pr:
     name: Create PR
     # yamllint disable-line rule:line-length
-    uses: worganisation/github-config-files/.github/workflows/__create-pull-request.yml@0.8.3
+    uses: worganisation/github-config-files/.github/workflows/__create-pull-request.yml@539b889c12470285760b747e8bb4a4c221213b59 # shared CI
     with:
       base-ref-name: ${{ github.event.repository.default_branch }}
       head-ref-name: ${{ github.ref_name }}
