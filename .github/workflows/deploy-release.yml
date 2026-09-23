@@ -1,0 +1,26 @@
+---
+name: Propose Home Assistant submodule update
+
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: esphome-submodule-release
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: "!github.event.release.prerelease"
+    # yamllint disable-line rule:line-length
+    uses: worganisation/github-config-files/.github/workflows/__deploy.yml@539b889c12470285760b747e8bb4a4c221213b59 # shared CI
+    with:
+      deploy-to: submodule:worganisation/home-assistant/esphome
+      environment: production
+      release-tag: ${{ github.event.release.tag_name }}
+    secrets: inherit
