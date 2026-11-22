@@ -4,7 +4,9 @@ substitutions:
   friendly_name: Bluetooth Proxy
 
 packages:
-  esphome.bluetooth-proxy: github://esphome/bluetooth-proxies/esp32-generic/esp32-generic.yaml@main
+  # Renovate tracks the upstream main branch through pinned commit updates.
+  esphome.bluetooth-proxy: >-
+    github://esphome/bluetooth-proxies/esp32-generic/esp32-generic.yaml@6387b836d61375b273065501a31fe936225eb620
 
 esphome:
   name: ${name}
