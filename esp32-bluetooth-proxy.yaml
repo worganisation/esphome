@@ -6,7 +6,7 @@ substitutions:
 packages:
   # Renovate tracks the upstream main branch through pinned commit updates.
   esphome.bluetooth-proxy: >-
-    github://esphome/bluetooth-proxies/esp32-generic/esp32-generic.yaml@6387b836d61375b273065501a31fe936225eb620
+    github://esphome/bluetooth-proxies/esp32-generic/esp32-generic.yaml@da95a91b1c1d691736df5e676f1d2a3324f28bc4
 
 esphome:
   name: ${name}
